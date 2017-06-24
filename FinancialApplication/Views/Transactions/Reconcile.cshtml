@@ -1,0 +1,57 @@
+﻿@model FinancialApplication.Models.CodeFirst.Transaction
+
+<!-- Page content-->
+<div class="content-wrapper">
+    <h3>
+        Reconcile a transaction in @ViewBag.AccountName
+    </h3>
+    <div class="container-fluid">
+        <!-- START row-->
+        <div class="row">
+            <div class="col-md-4">
+                <!-- START panel-->
+                <div class="panel panel-default no-header-danger">
+                    <div class="panel-heading">Enter new amount for @Model.Description</div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.HiddenFor(model => model.ReconciledTransactionId)
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <label>Amount</label>
+                                <div class="input-group m-b">
+                                    <span class="input-group-addon">$</span>
+                                    <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-range="Amount must be a number between 0.01 amd 1000000000.00" data-val-range-max="1000000000" data-val-range-min="0.01" data-val-required="The Amount field is required." id="currency" name="Amount" type="decimal" @*value="@Model.Amount"*@>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.NewAmount, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                Deposit
+                                <label class="switch">
+                                    <input type="checkbox" checked="checked">
+                                    <span></span>
+                                </label>
+                                Purchase
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-default">Add Transaction</button>
+                        }
+                    </div>
+                    <div class="panel-footer">
+                        @Html.ActionLink("Back to Home", "Index", null, new { @class = "btn btn-xs btn-success" })
+                    </div>
+                </div>
+                <!-- END panel-->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/jquery.maskMoney.js"></script>
+    <script>
+        $(function() {
+            $('#currency').maskMoney({thousands:""});
+        })
+    </script>
+}

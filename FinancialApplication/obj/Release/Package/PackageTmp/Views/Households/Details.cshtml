@@ -1,0 +1,60 @@
+﻿@model FinancialApplication.Models.CodeFirst.Household
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Household</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Users:
+        </dt>
+
+        <dd>
+            @foreach (var user in Model.Members)
+            {
+                @user.FullName<br />
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { householdId = Model.Id }) |
+    @Html.ActionLink("Invite", "Invite", new { householdId = Model.Id }) |
+    @if (!Model.Members.Select(m => m.Id).Contains(User.Identity.GetUserId()))
+    {
+        @Html.ActionLink("Join", "Join", new { householdId = Model.Id })<text> |</text>
+    }
+    else
+    {
+        @Html.ActionLink("Leave", "Leave", new { householdId = Model.Id })<text> |</text>
+    }
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<!-- Page content-->
+<div class="content-wrapper">
+    <h3>
+        Your Household
+        <small>Subtitle</small>
+    </h3>
+    <div class="row">
+        <div class="col-lg-12">
+            <p>A row with content</p>
+        </div>
+    </div>
+</div>

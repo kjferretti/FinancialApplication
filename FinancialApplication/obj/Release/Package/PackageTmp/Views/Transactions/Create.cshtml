@@ -1,0 +1,116 @@
+﻿@model FinancialApplication.Models.CodeFirst.Transaction
+
+<link href="~/Content/bootstrap-datepicker3.css" rel="stylesheet" />
+
+<!-- Page content-->
+<div class="content-wrapper">
+    <h3>
+        Create a new transaction for @ViewBag.AccountName
+    </h3>
+    <div class="container-fluid">
+        <!-- START row-->
+        <div class="row">
+            <div class="col-md-4">
+                <!-- START panel-->
+                <div class="panel panel-default no-header-danger">
+                    <div class="panel-heading">Enter transaction details</div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("AccountId")
+                            <input type="hidden" name="Type" id="typeinput" value="-" />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <label>Description</label>
+                                @if (Model != null)
+                                {
+                                    <input class="form-control" data-val="true" data-val-required="The Description field is required." id="Description" name="Description" type="text" @*value="@Model.Description"*@>
+                                }
+                                else
+                                {
+                                    <input class="form-control" data-val="true" data-val-required="The Description field is required." id="Description" name="Description" type="text" value="">
+                                }
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Amount</label>
+                                <div class="input-group m-b">
+                                    <span class="input-group-addon">$</span>
+                                    <input class="form-control" data-val="true" data-val-number="The field Amount must be a number." data-val-range="Amount must be a number between 0.01 amd 1000000000.00" data-val-range-max="1000000000" data-val-range-min="0.01" data-val-required="The Amount field is required." id="currency" name="Amount" type="decimal" @*value="@Model.Amount"*@>
+                                    <span class="input-group-btn"><button type="button" class="btn btn-info btn-block" id="expense"><em id="expense-type" class="fa fa-minus"></em></button></span>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Date of Transaction</label>
+                                <div class="input-group m-b">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                    @Html.TextBoxFor(model => model.Date, new { @class = "form-control date-picker"})
+                                    @*@Html.TextBoxFor(m => m.Date, "{0:MM/dd/yyyy}", new { @class = "form-control date-picker" })*@
+                                    @*<input class="form-control date-picker" name="Date" id="Date" type="date" data-date-format="mm/dd/yyyy">*@
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="Date" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            @*<div class="form-group">
+                                Deposit
+                                <label class="switch">
+                                    <input name="Expense" id="Expense" type="checkbox" checked="checked">
+                                    <span></span>
+                                </label>
+                                Purchase
+                            </div>*@
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.BudgetCategoryId, "BudgetCategoryId", htmlAttributes: new { @class = "control-label" })
+                                @Html.DropDownList("BudgetCategoryId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BudgetCategoryId, "", new { @class = "text-danger" })
+                            </div>
+                            @*<div class="form-group">
+                                <div class="">
+                                    <div class="checkbox">
+                                        <label>
+                                            @Html.CheckBoxFor(model => model.ForReconciled)
+                                            Reconciled
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>*@
+                            <button type="submit" class="btn btn-sm btn-default">Add Transaction</button>
+                        }
+                    </div>
+                    <div class="panel-footer">
+                        @Html.ActionLink("Back to Accounts", "Index", "Accounts", null, new { @class = "btn btn-xs btn-success" })
+                    </div>
+                </div>
+                <!-- END panel-->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/jquery.maskMoney.js"></script>
+    <!-- DATETIMEPICKER-->
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script>
+        $(function () {
+            $('#currency').maskMoney({ thousands: "" });
+        });
+
+        $('#expense').click(function () {
+            if ($('#typeinput').val() == "-") {
+                $('#typeinput').val("+");
+                $('#expense-type').addClass('fa-plus').removeClass('fa-minus');
+            }
+            else {
+                $('#typeinput').val("-");
+                $('#expense-type').addClass('fa-minus').removeClass('fa-plus');
+            }
+        });
+
+        //--Bootstrap Date Picker--
+        $('.date-picker').datepicker();
+    </script>
+}

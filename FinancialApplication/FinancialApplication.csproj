@@ -1,0 +1,1375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{24D15BDB-A1F0-4C21-8DDA-8F6915981909}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FinancialApplication</RootNamespace>
+    <AssemblyName>FinancialApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44363</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\BudgetsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HouseholdsController.cs" />
+    <Compile Include="Controllers\LandingController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TransactionsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\CustomAuthorizations.cs" />
+    <Compile Include="Helpers\CustomModelBinders.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Helpers\RefreshAuthentication.cs" />
+    <Compile Include="Helpers\ValidEmailChecker.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BudgetViewModels.cs" />
+    <Compile Include="Models\CodeFirst\Account.cs" />
+    <Compile Include="Models\CodeFirst\Budget.cs" />
+    <Compile Include="Models\CodeFirst\BudgetCategory.cs" />
+    <Compile Include="Models\CodeFirst\Household.cs" />
+    <Compile Include="Models\CodeFirst\Invitation.cs" />
+    <Compile Include="Models\CodeFirst\JoinRequest.cs" />
+    <Compile Include="Models\CodeFirst\Transaction.cs" />
+    <Compile Include="Models\DashboardViewModel.cs" />
+    <Compile Include="Models\EmailModel.cs" />
+    <Compile Include="Models\HouseholdViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\TransactionViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="backend-jquery\app\404.html" />
+    <Content Include="backend-jquery\app\500.html" />
+    <Content Include="backend-jquery\app\animations.html" />
+    <Content Include="backend-jquery\app\blog-article-view.html" />
+    <Content Include="backend-jquery\app\blog-articles.html" />
+    <Content Include="backend-jquery\app\blog-post.html" />
+    <Content Include="backend-jquery\app\blog.html" />
+    <Content Include="backend-jquery\app\bug-tracker.html" />
+    <Content Include="backend-jquery\app\buttons.html" />
+    <Content Include="backend-jquery\app\calendar.html" />
+    <Content Include="backend-jquery\app\carousel.html" />
+    <Content Include="backend-jquery\app\chart-chartist.html" />
+    <Content Include="backend-jquery\app\chart-flot.html" />
+    <Content Include="backend-jquery\app\chart-js.html" />
+    <Content Include="backend-jquery\app\chart-morris.html" />
+    <Content Include="backend-jquery\app\chart-radial.html" />
+    <Content Include="backend-jquery\app\chart-rickshaw.html" />
+    <Content Include="backend-jquery\app\colors.html" />
+    <Content Include="backend-jquery\app\contact-details.html" />
+    <Content Include="backend-jquery\app\contacts.html" />
+    <Content Include="backend-jquery\app\css\app-rtl.css" />
+    <Content Include="backend-jquery\app\css\app.css" />
+    <Content Include="backend-jquery\app\css\bootstrap-rtl.css" />
+    <Content Include="backend-jquery\app\css\bootstrap.css" />
+    <Content Include="backend-jquery\app\css\theme-a.css" />
+    <Content Include="backend-jquery\app\css\theme-b.css" />
+    <Content Include="backend-jquery\app\css\theme-c.css" />
+    <Content Include="backend-jquery\app\css\theme-d.css" />
+    <Content Include="backend-jquery\app\css\theme-e.css" />
+    <Content Include="backend-jquery\app\css\theme-f.css" />
+    <Content Include="backend-jquery\app\css\theme-g.css" />
+    <Content Include="backend-jquery\app\css\theme-h.css" />
+    <Content Include="backend-jquery\app\dashboard.html" />
+    <Content Include="backend-jquery\app\dashboard_h.html" />
+    <Content Include="backend-jquery\app\dashboard_v2.html" />
+    <Content Include="backend-jquery\app\dashboard_v3.html" />
+    <Content Include="backend-jquery\app\documentation.html" />
+    <Content Include="backend-jquery\app\dropdown-animations.html" />
+    <Content Include="backend-jquery\app\ecommerce-checkout.html" />
+    <Content Include="backend-jquery\app\ecommerce-order-view.html" />
+    <Content Include="backend-jquery\app\ecommerce-orders.html" />
+    <Content Include="backend-jquery\app\ecommerce-product-view.html" />
+    <Content Include="backend-jquery\app\ecommerce-products.html" />
+    <Content Include="backend-jquery\app\faq.html" />
+    <Content Include="backend-jquery\app\file-manager.html" />
+    <Content Include="backend-jquery\app\followers.html" />
+    <Content Include="backend-jquery\app\form-extended.html" />
+    <Content Include="backend-jquery\app\form-imagecrop.html" />
+    <Content Include="backend-jquery\app\form-standard.html" />
+    <Content Include="backend-jquery\app\form-upload.html" />
+    <Content Include="backend-jquery\app\form-validation.html" />
+    <Content Include="backend-jquery\app\form-wizard.html" />
+    <Content Include="backend-jquery\app\form-xeditable.html" />
+    <Content Include="backend-jquery\app\forum-categories.html" />
+    <Content Include="backend-jquery\app\forum-discussion.html" />
+    <Content Include="backend-jquery\app\forum-topics.html" />
+    <Content Include="backend-jquery\app\grid-masonry.html" />
+    <Content Include="backend-jquery\app\grid.html" />
+    <Content Include="backend-jquery\app\help-center.html" />
+    <Content Include="backend-jquery\app\icons-font.html" />
+    <Content Include="backend-jquery\app\icons-weather.html" />
+    <Content Include="backend-jquery\app\img\bg1.jpg" />
+    <Content Include="backend-jquery\app\img\bg10.jpg" />
+    <Content Include="backend-jquery\app\img\bg2.jpg" />
+    <Content Include="backend-jquery\app\img\bg3.jpg" />
+    <Content Include="backend-jquery\app\img\bg4.jpg" />
+    <Content Include="backend-jquery\app\img\bg5.jpg" />
+    <Content Include="backend-jquery\app\img\bg6.jpg" />
+    <Content Include="backend-jquery\app\img\bg7.jpg" />
+    <Content Include="backend-jquery\app\img\bg8.jpg" />
+    <Content Include="backend-jquery\app\img\bg9.jpg" />
+    <Content Include="backend-jquery\app\img\dummy.png" />
+    <Content Include="backend-jquery\app\img\lock-bg.jpg" />
+    <Content Include="backend-jquery\app\img\logo-single.png" />
+    <Content Include="backend-jquery\app\img\logo.png" />
+    <Content Include="backend-jquery\app\img\mb-sample.jpg" />
+    <Content Include="backend-jquery\app\img\mockup.png" />
+    <Content Include="backend-jquery\app\img\profile-bg.jpg" />
+    <Content Include="backend-jquery\app\img\user\01.jpg" />
+    <Content Include="backend-jquery\app\img\user\02.jpg" />
+    <Content Include="backend-jquery\app\img\user\03.jpg" />
+    <Content Include="backend-jquery\app\img\user\04.jpg" />
+    <Content Include="backend-jquery\app\img\user\05.jpg" />
+    <Content Include="backend-jquery\app\img\user\06.jpg" />
+    <Content Include="backend-jquery\app\img\user\07.jpg" />
+    <Content Include="backend-jquery\app\img\user\08.jpg" />
+    <Content Include="backend-jquery\app\img\user\09.jpg" />
+    <Content Include="backend-jquery\app\img\user\10.jpg" />
+    <Content Include="backend-jquery\app\img\user\11.jpg" />
+    <Content Include="backend-jquery\app\img\user\12.jpg" />
+    <Content Include="backend-jquery\app\img\user\13.jpg" />
+    <Content Include="backend-jquery\app\img\user\default-user.png" />
+    <Content Include="backend-jquery\app\invoice.html" />
+    <Content Include="backend-jquery\app\js\app.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-datatable.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-flot.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-forms.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-jqcloud.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-jqgrid.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-nestable.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-panels.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-rtl.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-search.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-sortable.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-upload.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-vector-map.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-wizard.js" />
+    <Content Include="backend-jquery\app\js\demo\demo-xeditable.js" />
+    <Content Include="backend-jquery\app\lock.html" />
+    <Content Include="backend-jquery\app\login.html" />
+    <Content Include="backend-jquery\app\mailbox.html" />
+    <Content Include="backend-jquery\app\maintenance.html" />
+    <Content Include="backend-jquery\app\maps-google.html" />
+    <Content Include="backend-jquery\app\maps-vector.html" />
+    <Content Include="backend-jquery\app\multilevel-1.html" />
+    <Content Include="backend-jquery\app\multilevel-3.html" />
+    <Content Include="backend-jquery\app\nestable.html" />
+    <Content Include="backend-jquery\app\notifications.html" />
+    <Content Include="backend-jquery\app\panels.html" />
+    <Content Include="backend-jquery\app\plans.html" />
+    <Content Include="backend-jquery\app\portlets.html" />
+    <Content Include="backend-jquery\app\profile.html" />
+    <Content Include="backend-jquery\app\project-details.html" />
+    <Content Include="backend-jquery\app\projects.html" />
+    <Content Include="backend-jquery\app\recover.html" />
+    <Content Include="backend-jquery\app\register.html" />
+    <Content Include="backend-jquery\app\search.html" />
+    <Content Include="backend-jquery\app\settings.html" />
+    <Content Include="backend-jquery\app\social-board.html" />
+    <Content Include="backend-jquery\app\sortable.html" />
+    <Content Include="backend-jquery\app\spinners.html" />
+    <Content Include="backend-jquery\app\sweetalert.html" />
+    <Content Include="backend-jquery\app\table-datatable.html" />
+    <Content Include="backend-jquery\app\table-extended.html" />
+    <Content Include="backend-jquery\app\table-jqgrid.html" />
+    <Content Include="backend-jquery\app\table-standard.html" />
+    <Content Include="backend-jquery\app\team-viewer.html" />
+    <Content Include="backend-jquery\app\template.html" />
+    <Content Include="backend-jquery\app\timeline.html" />
+    <Content Include="backend-jquery\app\todo.html" />
+    <Content Include="backend-jquery\app\tour.html" />
+    <Content Include="backend-jquery\app\typo.html" />
+    <Content Include="backend-jquery\app\vote-links.html" />
+    <Content Include="backend-jquery\app\widgets.html" />
+    <Content Include="backend-jquery\index.html" />
+    <Content Include="backend-jquery\master\gulpfile.js" />
+    <Content Include="backend-jquery\master\js\app.init.js" />
+    <Content Include="backend-jquery\master\js\custom\custom.js" />
+    <Content Include="backend-jquery\master\js\modules\bootstrap-start.js" />
+    <Content Include="backend-jquery\master\js\modules\calendar.js" />
+    <Content Include="backend-jquery\master\js\modules\chart-easypie.js" />
+    <Content Include="backend-jquery\master\js\modules\chart-knob.js" />
+    <Content Include="backend-jquery\master\js\modules\chart.js" />
+    <Content Include="backend-jquery\master\js\modules\chartist.js" />
+    <Content Include="backend-jquery\master\js\modules\clear-storage.js" />
+    <Content Include="backend-jquery\master\js\modules\color-picker.js" />
+    <Content Include="backend-jquery\master\js\modules\constants.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-datatable.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-flot.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-forms.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-jqcloud.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-jqgrid.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-nestable.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-panels.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-rtl.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-search.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-sortable.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-upload.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-vector-map.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-wizard.js" />
+    <Content Include="backend-jquery\master\js\modules\demo\demo-xeditable.js" />
+    <Content Include="backend-jquery\master\js\modules\easypiechart.js" />
+    <Content Include="backend-jquery\master\js\modules\flatdoc.js" />
+    <Content Include="backend-jquery\master\js\modules\fullscreen.js" />
+    <Content Include="backend-jquery\master\js\modules\gmap.js" />
+    <Content Include="backend-jquery\master\js\modules\imagecrop.js" />
+    <Content Include="backend-jquery\master\js\modules\load-css.js" />
+    <Content Include="backend-jquery\master\js\modules\localize.js" />
+    <Content Include="backend-jquery\master\js\modules\maps-vector.js" />
+    <Content Include="backend-jquery\master\js\modules\morris.js" />
+    <Content Include="backend-jquery\master\js\modules\navbar-search.js" />
+    <Content Include="backend-jquery\master\js\modules\notify.js" />
+    <Content Include="backend-jquery\master\js\modules\now.js" />
+    <Content Include="backend-jquery\master\js\modules\panel-tools.js" />
+    <Content Include="backend-jquery\master\js\modules\play-animation.js" />
+    <Content Include="backend-jquery\master\js\modules\porlets.js" />
+    <Content Include="backend-jquery\master\js\modules\rickshaw.js" />
+    <Content Include="backend-jquery\master\js\modules\select2.js" />
+    <Content Include="backend-jquery\master\js\modules\sidebar.js" />
+    <Content Include="backend-jquery\master\js\modules\skycons.js" />
+    <Content Include="backend-jquery\master\js\modules\slimscroll.js" />
+    <Content Include="backend-jquery\master\js\modules\sparkline.js" />
+    <Content Include="backend-jquery\master\js\modules\sweetalert.js" />
+    <Content Include="backend-jquery\master\js\modules\table-checkall.js" />
+    <Content Include="backend-jquery\master\js\modules\toggle-state.js" />
+    <Content Include="backend-jquery\master\js\modules\tour.js" />
+    <Content Include="backend-jquery\master\js\modules\trigger-resize.js" />
+    <Content Include="backend-jquery\master\js\modules\utils.js" />
+    <Content Include="backend-jquery\vendor\animate.css\animate.min.css" />
+    <Content Include="backend-jquery\vendor\animo.js\animo.js" />
+    <Content Include="backend-jquery\vendor\blueimp-canvas-to-blob\js\canvas-to-blob.js" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\css\jquery.fileupload.css" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\img\loading.gif" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\img\progressbar.gif" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\js\jquery.fileupload-angular.js" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\js\jquery.fileupload-audio.js" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\js\jquery.fileupload-image.js" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\js\jquery.fileupload-jquery-ui.js" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\js\jquery.fileupload-process.js" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\js\jquery.fileupload-ui.js" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\js\jquery.fileupload-validate.js" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\js\jquery.fileupload-video.js" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\js\jquery.fileupload.js" />
+    <Content Include="backend-jquery\vendor\blueimp-file-upload\js\jquery.iframe-transport.js" />
+    <Content Include="backend-jquery\vendor\blueimp-load-image\js\load-image.all.min.js" />
+    <Content Include="backend-jquery\vendor\blueimp-tmpl\js\tmpl.js" />
+    <Content Include="backend-jquery\vendor\bootstrap-filestyle\src\bootstrap-filestyle.js" />
+    <Content Include="backend-jquery\vendor\bootstrap-tagsinput\dist\bootstrap-tagsinput.css" />
+    <Content Include="backend-jquery\vendor\bootstrap-tagsinput\dist\bootstrap-tagsinput.min.js" />
+    <Content Include="backend-jquery\vendor\bootstrap-tour\build\css\bootstrap-tour-standalone.css" />
+    <Content Include="backend-jquery\vendor\bootstrap-tour\build\js\bootstrap-tour-standalone.js" />
+    <Content Include="backend-jquery\vendor\bootstrap-wysiwyg\bootstrap-wysiwyg.js" />
+    <Content Include="backend-jquery\vendor\bootstrap-wysiwyg\external\jquery.hotkeys.js" />
+    <Content Include="backend-jquery\vendor\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="backend-jquery\vendor\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="backend-jquery\vendor\Chart.js\Chart.js" />
+    <Content Include="backend-jquery\vendor\chartist\dist\chartist.js" />
+    <Content Include="backend-jquery\vendor\chartist\dist\chartist.min.css" />
+    <Content Include="backend-jquery\vendor\chosen_v1.2.0\chosen-sprite%402x.png" />
+    <Content Include="backend-jquery\vendor\chosen_v1.2.0\chosen-sprite.png" />
+    <Content Include="backend-jquery\vendor\chosen_v1.2.0\chosen.jquery.min.js" />
+    <Content Include="backend-jquery\vendor\chosen_v1.2.0\chosen.min.css" />
+    <Content Include="backend-jquery\vendor\cropper\dist\cropper.css" />
+    <Content Include="backend-jquery\vendor\cropper\dist\cropper.js" />
+    <Content Include="backend-jquery\vendor\d3\d3.min.js" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\js\buttons.bootstrap.js" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\js\buttons.bootstrap4.js" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\js\buttons.colVis.js" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\js\buttons.flash.js" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\js\buttons.foundation.js" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\js\buttons.html5.js" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\js\buttons.jqueryui.js" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\js\buttons.print.js" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\js\buttons.semanticui.js" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\js\dataTables.buttons.js" />
+    <Content Include="backend-jquery\vendor\datatables-colvis\css\dataTables.colVis.css" />
+    <Content Include="backend-jquery\vendor\datatables-colvis\js\dataTables.colVis.js" />
+    <Content Include="backend-jquery\vendor\datatables-responsive\js\dataTables.responsive.js" />
+    <Content Include="backend-jquery\vendor\datatables-responsive\js\responsive.bootstrap.js" />
+    <Content Include="backend-jquery\vendor\dataTables.fontAwesome\index.css" />
+    <Content Include="backend-jquery\vendor\datatables\media\css\dataTables.bootstrap.css" />
+    <Content Include="backend-jquery\vendor\datatables\media\images\favicon.ico" />
+    <Content Include="backend-jquery\vendor\datatables\media\images\sort_asc.png" />
+    <Content Include="backend-jquery\vendor\datatables\media\images\sort_asc_disabled.png" />
+    <Content Include="backend-jquery\vendor\datatables\media\images\sort_both.png" />
+    <Content Include="backend-jquery\vendor\datatables\media\images\sort_desc.png" />
+    <Content Include="backend-jquery\vendor\datatables\media\images\sort_desc_disabled.png" />
+    <Content Include="backend-jquery\vendor\datatables\media\js\dataTables.bootstrap.js" />
+    <Content Include="backend-jquery\vendor\datatables\media\js\jquery.dataTables.min.js" />
+    <Content Include="backend-jquery\vendor\eonasdan-bootstrap-datetimepicker\build\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="backend-jquery\vendor\eonasdan-bootstrap-datetimepicker\build\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="backend-jquery\vendor\fastclick\lib\fastclick.js" />
+    <Content Include="backend-jquery\vendor\flatdoc\flatdoc.js" />
+    <Content Include="backend-jquery\vendor\flot-spline\js\jquery.flot.spline.min.js" />
+    <Content Include="backend-jquery\vendor\flot.tooltip\js\jquery.flot.tooltip.min.js" />
+    <Content Include="backend-jquery\vendor\Flot\jquery.flot.categories.js" />
+    <Content Include="backend-jquery\vendor\Flot\jquery.flot.js" />
+    <Content Include="backend-jquery\vendor\Flot\jquery.flot.pie.js" />
+    <Content Include="backend-jquery\vendor\Flot\jquery.flot.resize.js" />
+    <Content Include="backend-jquery\vendor\Flot\jquery.flot.time.js" />
+    <Content Include="backend-jquery\vendor\fontawesome\css\font-awesome.min.css" />
+    <Content Include="backend-jquery\vendor\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="backend-jquery\vendor\fullcalendar\dist\fullcalendar.css" />
+    <Content Include="backend-jquery\vendor\fullcalendar\dist\fullcalendar.min.js" />
+    <Content Include="backend-jquery\vendor\fullcalendar\dist\gcal.js" />
+    <Content Include="backend-jquery\vendor\html.sortable\dist\html.sortable.js" />
+    <Content Include="backend-jquery\vendor\ika.jvectormap\jquery-jvectormap-1.2.2.css" />
+    <Content Include="backend-jquery\vendor\ika.jvectormap\jquery-jvectormap-1.2.2.min.js" />
+    <Content Include="backend-jquery\vendor\ika.jvectormap\jquery-jvectormap-us-mill-en.js" />
+    <Content Include="backend-jquery\vendor\ika.jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="backend-jquery\vendor\jqcloud2\dist\jqcloud.css" />
+    <Content Include="backend-jquery\vendor\jqcloud2\dist\jqcloud.js" />
+    <Content Include="backend-jquery\vendor\jqgrid\css\ui.jqgrid.css" />
+    <Content Include="backend-jquery\vendor\jqgrid\js\i18n\grid.locale-en.js" />
+    <Content Include="backend-jquery\vendor\jqgrid\js\jquery.jqGrid.js" />
+    <Content Include="backend-jquery\vendor\jQuery-gMap\jquery.gmap.min.js" />
+    <Content Include="backend-jquery\vendor\jquery-knob\js\jquery.knob.js" />
+    <Content Include="backend-jquery\vendor\jquery-localize-i18n\dist\jquery.localize.js" />
+    <Content Include="backend-jquery\vendor\jQuery-Storage-API\jquery.storageapi.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\jquery-ui.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\jquery-ui.css" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\jquery-ui.min.css" />
+    <Content Include="backend-jquery\vendor\jquery-ui\themes\smoothness\theme.css" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\core.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\data.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\disable-selection.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effect.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-blind.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-bounce.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-clip.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-drop.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-explode.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-fade.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-fold.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-highlight.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-puff.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-pulsate.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-scale.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-shake.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-size.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-slide.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\effects\effect-transfer.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\escape-selector.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\focusable.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\form-reset-mixin.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\form.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-af.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-ar-DZ.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-ar.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-az.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-be.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-bg.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-bs.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-ca.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-cs.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-cy-GB.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-da.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-de.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-el.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-en-AU.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-en-GB.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-en-NZ.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-eo.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-es.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-et.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-eu.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-fa.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-fi.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-fo.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-fr-CA.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-fr-CH.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-fr.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-gl.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-he.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-hi.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-hr.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-hu.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-hy.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-id.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-is.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-it-CH.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-it.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-ja.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-ka.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-kk.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-km.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-ko.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-ky.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-lb.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-lt.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-lv.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-mk.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-ml.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-ms.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-nb.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-nl-BE.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-nl.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-nn.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-no.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-pl.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-pt-BR.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-pt.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-rm.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-ro.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-ru.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-sk.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-sl.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-sq.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-sr-SR.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-sr.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-sv.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-ta.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-th.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-tj.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-tr.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-uk.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-vi.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-zh-CN.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-zh-HK.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\i18n\datepicker-zh-TW.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\ie.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\jquery-1-7.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\keycode.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\labels.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\core.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\data.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\disable-selection.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\effect.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\escape-selector.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\focusable.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\form-reset-mixin.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\form.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-af.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-ar-DZ.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-ar.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-az.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-be.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-bg.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-bs.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-ca.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-cs.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-cy-GB.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-da.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-de.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-el.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-en-AU.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-en-GB.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-en-NZ.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-eo.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-es.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-et.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-eu.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-fa.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-fi.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-fo.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-fr-CA.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-fr-CH.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-fr.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-gl.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-he.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-hi.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-hr.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-hu.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-hy.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-id.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-is.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-it-CH.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-it.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-ja.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-ka.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-kk.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-km.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-ko.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-ky.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-lb.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-lt.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-lv.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-mk.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-ml.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-ms.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-nb.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-nl-BE.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-nl.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-nn.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-no.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-pl.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-pt-BR.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-pt.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-rm.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-ro.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-ru.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-sk.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-sl.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-sq.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-sr-SR.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-sr.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-sv.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-ta.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-th.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-tj.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-tr.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-uk.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-vi.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-zh-CN.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-zh-HK.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\i18n\datepicker-zh-TW.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\ie.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\jquery-1-7.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\keycode.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\labels.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\plugin.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\position.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\safe-active-element.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\safe-blur.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\scroll-parent.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\tabbable.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\unique-id.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\version.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\minified\widget.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\plugin.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\position.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\safe-active-element.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\safe-blur.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\scroll-parent.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\tabbable.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\unique-id.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\version.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widget.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\accordion.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\autocomplete.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\button.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\checkboxradio.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\controlgroup.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\datepicker.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\dialog.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\draggable.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\droppable.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\menu.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\mouse.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\progressbar.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\resizable.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\selectable.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\selectmenu.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\slider.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\sortable.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\spinner.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\tabs.js" />
+    <Content Include="backend-jquery\vendor\jquery-ui\ui\widgets\tooltip.js" />
+    <Content Include="backend-jquery\vendor\jquery-validation\dist\jquery.validate.js" />
+    <Content Include="backend-jquery\vendor\jquery.easing\js\jquery.easing.js" />
+    <Content Include="backend-jquery\vendor\jquery.easy-pie-chart\dist\jquery.easypiechart.js" />
+    <Content Include="backend-jquery\vendor\jquery.inputmask\dist\jquery.inputmask.bundle.js" />
+    <Content Include="backend-jquery\vendor\jquery.steps\build\jquery.steps.js" />
+    <Content Include="backend-jquery\vendor\jqueryui-touch-punch\jquery.ui.touch-punch.min.js" />
+    <Content Include="backend-jquery\vendor\jquery\dist\jquery.js" />
+    <Content Include="backend-jquery\vendor\loaders.css\loaders.css" />
+    <Content Include="backend-jquery\vendor\matchMedia\matchMedia.js" />
+    <Content Include="backend-jquery\vendor\mjolnic-bootstrap-colorpicker\dist\css\bootstrap-colorpicker.css" />
+    <Content Include="backend-jquery\vendor\mjolnic-bootstrap-colorpicker\dist\img\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="backend-jquery\vendor\mjolnic-bootstrap-colorpicker\dist\img\bootstrap-colorpicker\alpha.png" />
+    <Content Include="backend-jquery\vendor\mjolnic-bootstrap-colorpicker\dist\img\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="backend-jquery\vendor\mjolnic-bootstrap-colorpicker\dist\img\bootstrap-colorpicker\hue.png" />
+    <Content Include="backend-jquery\vendor\mjolnic-bootstrap-colorpicker\dist\img\bootstrap-colorpicker\saturation.png" />
+    <Content Include="backend-jquery\vendor\mjolnic-bootstrap-colorpicker\dist\js\bootstrap-colorpicker.js" />
+    <Content Include="backend-jquery\vendor\modernizr\modernizr.custom.js" />
+    <Content Include="backend-jquery\vendor\moment\min\moment-with-locales.min.js" />
+    <Content Include="backend-jquery\vendor\morris.js\morris.css" />
+    <Content Include="backend-jquery\vendor\morris.js\morris.js" />
+    <Content Include="backend-jquery\vendor\nestable\jquery.nestable.js" />
+    <Content Include="backend-jquery\vendor\parsleyjs\dist\parsley.min.js" />
+    <Content Include="backend-jquery\vendor\raphael\raphael.js" />
+    <Content Include="backend-jquery\vendor\rickshaw\rickshaw.js" />
+    <Content Include="backend-jquery\vendor\rickshaw\rickshaw.min.css" />
+    <Content Include="backend-jquery\vendor\screenfull\dist\screenfull.js" />
+    <Content Include="backend-jquery\vendor\seiyria-bootstrap-slider\dist\bootstrap-slider.min.js" />
+    <Content Include="backend-jquery\vendor\seiyria-bootstrap-slider\dist\css\bootstrap-slider.min.css" />
+    <Content Include="backend-jquery\vendor\select2-bootstrap-theme\dist\select2-bootstrap.css" />
+    <Content Include="backend-jquery\vendor\select2\dist\css\select2.css" />
+    <Content Include="backend-jquery\vendor\select2\dist\js\select2.js" />
+    <Content Include="backend-jquery\vendor\simple-line-icons\css\simple-line-icons.css" />
+    <Content Include="backend-jquery\vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="backend-jquery\vendor\skycons\skycons.js" />
+    <Content Include="backend-jquery\vendor\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="backend-jquery\vendor\sparkline\index.js" />
+    <Content Include="backend-jquery\vendor\spinkit\css\spinkit.css" />
+    <Content Include="backend-jquery\vendor\sweetalert\dist\sweetalert.css" />
+    <Content Include="backend-jquery\vendor\sweetalert\dist\sweetalert.min.js" />
+    <Content Include="backend-jquery\vendor\weather-icons\css\weather-icons-wind.min.css" />
+    <Content Include="backend-jquery\vendor\weather-icons\css\weather-icons.min.css" />
+    <Content Include="backend-jquery\vendor\weather-icons\font\weathericons-regular-webfont.svg" />
+    <Content Include="backend-jquery\vendor\whirl\dist\whirl.css" />
+    <Content Include="backend-jquery\vendor\x-editable\dist\bootstrap3-editable\css\bootstrap-editable.css" />
+    <Content Include="backend-jquery\vendor\x-editable\dist\bootstrap3-editable\img\clear.png" />
+    <Content Include="backend-jquery\vendor\x-editable\dist\bootstrap3-editable\img\loading.gif" />
+    <Content Include="backend-jquery\vendor\x-editable\dist\bootstrap3-editable\js\bootstrap-editable.js" />
+    <Content Include="backend-jquery\vendor\x-editable\dist\bootstrap3-editable\js\bootstrap-editable.min.js" />
+    <Content Include="Content\bootstrap-datepicker3.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config" />
+    <Content Include="backend-jquery\app\documentation\readme.md" />
+    <Content Include="backend-jquery\app\i18n\site-en.json" />
+    <Content Include="backend-jquery\app\i18n\site-es.json" />
+    <Content Include="backend-jquery\master\.bowerrc" />
+    <Content Include="backend-jquery\master\bower.json" />
+    <Content Include="backend-jquery\master\jade\pages\404.jade" />
+    <Content Include="backend-jquery\master\jade\pages\500.jade" />
+    <Content Include="backend-jquery\master\jade\pages\lock.jade" />
+    <Content Include="backend-jquery\master\jade\pages\login.jade" />
+    <Content Include="backend-jquery\master\jade\pages\maintenance.jade" />
+    <Content Include="backend-jquery\master\jade\pages\recover.jade" />
+    <Content Include="backend-jquery\master\jade\pages\register.jade" />
+    <Content Include="backend-jquery\master\jade\pages\_footer_page.jade" />
+    <Content Include="backend-jquery\master\jade\views\animations.jade" />
+    <Content Include="backend-jquery\master\jade\views\blog-article-view.jade" />
+    <Content Include="backend-jquery\master\jade\views\blog-articles.jade" />
+    <Content Include="backend-jquery\master\jade\views\blog-post.jade" />
+    <Content Include="backend-jquery\master\jade\views\blog.jade" />
+    <Content Include="backend-jquery\master\jade\views\bug-tracker.jade" />
+    <Content Include="backend-jquery\master\jade\views\buttons.jade" />
+    <Content Include="backend-jquery\master\jade\views\calendar.jade" />
+    <Content Include="backend-jquery\master\jade\views\carousel.jade" />
+    <Content Include="backend-jquery\master\jade\views\chart-chartist.jade" />
+    <Content Include="backend-jquery\master\jade\views\chart-flot.jade" />
+    <Content Include="backend-jquery\master\jade\views\chart-js.jade" />
+    <Content Include="backend-jquery\master\jade\views\chart-morris.jade" />
+    <Content Include="backend-jquery\master\jade\views\chart-radial.jade" />
+    <Content Include="backend-jquery\master\jade\views\chart-rickshaw.jade" />
+    <Content Include="backend-jquery\master\jade\views\colors.jade" />
+    <Content Include="backend-jquery\master\jade\views\contact-details.jade" />
+    <Content Include="backend-jquery\master\jade\views\contacts.jade" />
+    <Content Include="backend-jquery\master\jade\views\dashboard.jade" />
+    <Content Include="backend-jquery\master\jade\views\dashboard_h.jade" />
+    <Content Include="backend-jquery\master\jade\views\dashboard_v2.jade" />
+    <Content Include="backend-jquery\master\jade\views\dashboard_v3.jade" />
+    <Content Include="backend-jquery\master\jade\views\documentation.jade" />
+    <Content Include="backend-jquery\master\jade\views\dropdown-animations.jade" />
+    <Content Include="backend-jquery\master\jade\views\ecommerce-checkout.jade" />
+    <Content Include="backend-jquery\master\jade\views\ecommerce-order-view.jade" />
+    <Content Include="backend-jquery\master\jade\views\ecommerce-orders.jade" />
+    <Content Include="backend-jquery\master\jade\views\ecommerce-product-view.jade" />
+    <Content Include="backend-jquery\master\jade\views\ecommerce-products.jade" />
+    <Content Include="backend-jquery\master\jade\views\faq.jade" />
+    <Content Include="backend-jquery\master\jade\views\file-manager.jade" />
+    <Content Include="backend-jquery\master\jade\views\followers.jade" />
+    <Content Include="backend-jquery\master\jade\views\form-extended.jade" />
+    <Content Include="backend-jquery\master\jade\views\form-imagecrop.jade" />
+    <Content Include="backend-jquery\master\jade\views\form-standard.jade" />
+    <Content Include="backend-jquery\master\jade\views\form-upload.jade" />
+    <Content Include="backend-jquery\master\jade\views\form-validation.jade" />
+    <Content Include="backend-jquery\master\jade\views\form-wizard.jade" />
+    <Content Include="backend-jquery\master\jade\views\form-xeditable.jade" />
+    <Content Include="backend-jquery\master\jade\views\forum-categories.jade" />
+    <Content Include="backend-jquery\master\jade\views\forum-discussion.jade" />
+    <Content Include="backend-jquery\master\jade\views\forum-topics.jade" />
+    <Content Include="backend-jquery\master\jade\views\grid-masonry.jade" />
+    <Content Include="backend-jquery\master\jade\views\grid.jade" />
+    <Content Include="backend-jquery\master\jade\views\help-center.jade" />
+    <Content Include="backend-jquery\master\jade\views\icons-font.jade" />
+    <Content Include="backend-jquery\master\jade\views\icons-weather.jade" />
+    <Content Include="backend-jquery\master\jade\views\invoice.jade" />
+    <Content Include="backend-jquery\master\jade\views\mailbox.jade" />
+    <Content Include="backend-jquery\master\jade\views\maps-google.jade" />
+    <Content Include="backend-jquery\master\jade\views\maps-vector.jade" />
+    <Content Include="backend-jquery\master\jade\views\multilevel-1.jade" />
+    <Content Include="backend-jquery\master\jade\views\multilevel-3.jade" />
+    <Content Include="backend-jquery\master\jade\views\nestable.jade" />
+    <Content Include="backend-jquery\master\jade\views\notifications.jade" />
+    <Content Include="backend-jquery\master\jade\views\panels.jade" />
+    <Content Include="backend-jquery\master\jade\views\partials\_chat.jade" />
+    <Content Include="backend-jquery\master\jade\views\partials\_footer.jade" />
+    <Content Include="backend-jquery\master\jade\views\partials\_head.jade" />
+    <Content Include="backend-jquery\master\jade\views\partials\_offsidebar.jade" />
+    <Content Include="backend-jquery\master\jade\views\partials\_scripts.jade" />
+    <Content Include="backend-jquery\master\jade\views\partials\_settings.jade" />
+    <Content Include="backend-jquery\master\jade\views\partials\_sidebar.jade" />
+    <Content Include="backend-jquery\master\jade\views\partials\_top-navbar.jade" />
+    <Content Include="backend-jquery\master\jade\views\partials\_top-navbar_h.jade" />
+    <Content Include="backend-jquery\master\jade\views\plans.jade" />
+    <Content Include="backend-jquery\master\jade\views\portlets.jade" />
+    <Content Include="backend-jquery\master\jade\views\profile.jade" />
+    <Content Include="backend-jquery\master\jade\views\project-details.jade" />
+    <Content Include="backend-jquery\master\jade\views\projects.jade" />
+    <Content Include="backend-jquery\master\jade\views\search.jade" />
+    <Content Include="backend-jquery\master\jade\views\settings.jade" />
+    <Content Include="backend-jquery\master\jade\views\social-board.jade" />
+    <Content Include="backend-jquery\master\jade\views\sortable.jade" />
+    <Content Include="backend-jquery\master\jade\views\spinners.jade" />
+    <Content Include="backend-jquery\master\jade\views\sweetalert.jade" />
+    <Content Include="backend-jquery\master\jade\views\table-datatable.jade" />
+    <Content Include="backend-jquery\master\jade\views\table-extended.jade" />
+    <Content Include="backend-jquery\master\jade\views\table-jqgrid.jade" />
+    <Content Include="backend-jquery\master\jade\views\table-standard.jade" />
+    <Content Include="backend-jquery\master\jade\views\team-viewer.jade" />
+    <Content Include="backend-jquery\master\jade\views\template.jade" />
+    <Content Include="backend-jquery\master\jade\views\timeline.jade" />
+    <Content Include="backend-jquery\master\jade\views\todo.jade" />
+    <Content Include="backend-jquery\master\jade\views\tour.jade" />
+    <Content Include="backend-jquery\master\jade\views\typo.jade" />
+    <Content Include="backend-jquery\master\jade\views\vote-links.jade" />
+    <Content Include="backend-jquery\master\jade\views\widgets.jade" />
+    <Content Include="backend-jquery\master\jade\_layout.jade" />
+    <Content Include="backend-jquery\master\jade\_layout_h.jade" />
+    <Content Include="backend-jquery\master\jade\_layout_page.jade" />
+    <Content Include="backend-jquery\master\less\app.less" />
+    <Content Include="backend-jquery\master\less\app\alerts.less" />
+    <Content Include="backend-jquery\master\less\app\animate.less" />
+    <Content Include="backend-jquery\master\less\app\bootstrap-reset.less" />
+    <Content Include="backend-jquery\master\less\app\breadcrumbs.less" />
+    <Content Include="backend-jquery\master\less\app\button-extra.less" />
+    <Content Include="backend-jquery\master\less\app\calendar.less" />
+    <Content Include="backend-jquery\master\less\app\chart-easypie.less" />
+    <Content Include="backend-jquery\master\less\app\chart-flot.less" />
+    <Content Include="backend-jquery\master\less\app\circles.less" />
+    <Content Include="backend-jquery\master\less\app\datatable.less" />
+    <Content Include="backend-jquery\master\less\app\docs.less" />
+    <Content Include="backend-jquery\master\less\app\dropdown-extra.less" />
+    <Content Include="backend-jquery\master\less\app\form-elements.less" />
+    <Content Include="backend-jquery\master\less\app\form-imgcrop.less" />
+    <Content Include="backend-jquery\master\less\app\form-tags.less" />
+    <Content Include="backend-jquery\master\less\app\form-validation.less" />
+    <Content Include="backend-jquery\master\less\app\form-wizard.less" />
+    <Content Include="backend-jquery\master\less\app\gmap.less" />
+    <Content Include="backend-jquery\master\less\app\half-float.less" />
+    <Content Include="backend-jquery\master\less\app\jqgrid.less" />
+    <Content Include="backend-jquery\master\less\app\layout-animation.less" />
+    <Content Include="backend-jquery\master\less\app\layout-extra.less" />
+    <Content Include="backend-jquery\master\less\app\layout.less" />
+    <Content Include="backend-jquery\master\less\app\mailbox.less" />
+    <Content Include="backend-jquery\master\less\app\masonry-grid.less" />
+    <Content Include="backend-jquery\master\less\app\media-queries.less" />
+    <Content Include="backend-jquery\master\less\app\nestable.less" />
+    <Content Include="backend-jquery\master\less\app\notify.less" />
+    <Content Include="backend-jquery\master\less\app\offsidebar.less" />
+    <Content Include="backend-jquery\master\less\app\panels.less" />
+    <Content Include="backend-jquery\master\less\app\placeholder.less" />
+    <Content Include="backend-jquery\master\less\app\plans.less" />
+    <Content Include="backend-jquery\master\less\app\plugins.less" />
+    <Content Include="backend-jquery\master\less\app\portlets.less" />
+    <Content Include="backend-jquery\master\less\app\print.less" />
+    <Content Include="backend-jquery\master\less\app\progress-extra.less" />
+    <Content Include="backend-jquery\master\less\app\radial-bar.less" />
+    <Content Include="backend-jquery\master\less\app\row-extra.less" />
+    <Content Include="backend-jquery\master\less\app\settings.less" />
+    <Content Include="backend-jquery\master\less\app\sidebar.less" />
+    <Content Include="backend-jquery\master\less\app\slim-scroll.less" />
+    <Content Include="backend-jquery\master\less\app\spinner.less" />
+    <Content Include="backend-jquery\master\less\app\table-extras.less" />
+    <Content Include="backend-jquery\master\less\app\table-grid.less" />
+    <Content Include="backend-jquery\master\less\app\timeline.less" />
+    <Content Include="backend-jquery\master\less\app\todo.less" />
+    <Content Include="backend-jquery\master\less\app\top-navbar.less" />
+    <Content Include="backend-jquery\master\less\app\typo.less" />
+    <Content Include="backend-jquery\master\less\app\user-block.less" />
+    <Content Include="backend-jquery\master\less\app\utils.less" />
+    <Content Include="backend-jquery\master\less\app\vector-map.less" />
+    <Content Include="backend-jquery\master\less\app\widget.less" />
+    <Content Include="backend-jquery\master\less\bootstrap.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\alerts.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\badges.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\bootstrap.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\breadcrumbs.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\button-groups.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\buttons.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\carousel.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\close.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\code.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\component-animations.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\dropdowns.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\forms.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\glyphicons.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\grid.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\input-groups.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\jumbotron.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\labels.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\list-group.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\media.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\alerts.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\background-variant.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\border-radius.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\buttons.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\center-block.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\clearfix.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\forms.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\gradients.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\grid-framework.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\grid.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\hide-text.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\image.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\labels.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\list-group.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\nav-divider.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\opacity.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\pagination.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\panels.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\progress-bar.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\reset-filter.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\reset-text.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\resize.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\size.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\tab-focus.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\table-row.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\text-overflow.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\modals.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\navbar.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\navs.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\normalize.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\pager.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\pagination.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\panels.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\popovers.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\print.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\progress-bars.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\responsive-embed.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\responsive-utilities.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\scaffolding.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\tables.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\theme.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\thumbnails.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\tooltip.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\type.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\utilities.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\variables.less" />
+    <Content Include="backend-jquery\master\less\bootstrap\wells.less" />
+    <Content Include="backend-jquery\master\less\themes\theme-a.less" />
+    <Content Include="backend-jquery\master\less\themes\theme-b.less" />
+    <Content Include="backend-jquery\master\less\themes\theme-c.less" />
+    <Content Include="backend-jquery\master\less\themes\theme-d.less" />
+    <Content Include="backend-jquery\master\less\themes\theme-e.less" />
+    <Content Include="backend-jquery\master\less\themes\theme-f.less" />
+    <Content Include="backend-jquery\master\less\themes\theme-g.less" />
+    <Content Include="backend-jquery\master\less\themes\theme-h.less" />
+    <Content Include="backend-jquery\master\package.json" />
+    <Content Include="backend-jquery\master\sass\app.scss" />
+    <Content Include="backend-jquery\master\sass\app\alerts.scss" />
+    <Content Include="backend-jquery\master\sass\app\animate.scss" />
+    <Content Include="backend-jquery\master\sass\app\bootstrap-reset.scss" />
+    <Content Include="backend-jquery\master\sass\app\breadcrumbs.scss" />
+    <Content Include="backend-jquery\master\sass\app\button-extra.scss" />
+    <Content Include="backend-jquery\master\sass\app\calendar.scss" />
+    <Content Include="backend-jquery\master\sass\app\chart-easypie.scss" />
+    <Content Include="backend-jquery\master\sass\app\chart-flot.scss" />
+    <Content Include="backend-jquery\master\sass\app\circles.scss" />
+    <Content Include="backend-jquery\master\sass\app\datatable.scss" />
+    <Content Include="backend-jquery\master\sass\app\docs.scss" />
+    <Content Include="backend-jquery\master\sass\app\dropdown-extra.scss" />
+    <Content Include="backend-jquery\master\sass\app\form-elements.scss" />
+    <Content Include="backend-jquery\master\sass\app\form-imgcrop.scss" />
+    <Content Include="backend-jquery\master\sass\app\form-tags.scss" />
+    <Content Include="backend-jquery\master\sass\app\form-validation.scss" />
+    <Content Include="backend-jquery\master\sass\app\form-wizard.scss" />
+    <Content Include="backend-jquery\master\sass\app\gmap.scss" />
+    <Content Include="backend-jquery\master\sass\app\half-float.scss" />
+    <Content Include="backend-jquery\master\sass\app\jqgrid.scss" />
+    <Content Include="backend-jquery\master\sass\app\layout-animation.scss" />
+    <Content Include="backend-jquery\master\sass\app\layout-extra.scss" />
+    <Content Include="backend-jquery\master\sass\app\layout.scss" />
+    <Content Include="backend-jquery\master\sass\app\mailbox.scss" />
+    <Content Include="backend-jquery\master\sass\app\masonry-grid.scss" />
+    <Content Include="backend-jquery\master\sass\app\media-queries.scss" />
+    <Content Include="backend-jquery\master\sass\app\nestable.scss" />
+    <Content Include="backend-jquery\master\sass\app\notify.scss" />
+    <Content Include="backend-jquery\master\sass\app\offsidebar.scss" />
+    <Content Include="backend-jquery\master\sass\app\panels.scss" />
+    <Content Include="backend-jquery\master\sass\app\placeholder.scss" />
+    <Content Include="backend-jquery\master\sass\app\plans.scss" />
+    <Content Include="backend-jquery\master\sass\app\plugins.scss" />
+    <Content Include="backend-jquery\master\sass\app\portlets.scss" />
+    <Content Include="backend-jquery\master\sass\app\print.scss" />
+    <Content Include="backend-jquery\master\sass\app\progress-extra.scss" />
+    <Content Include="backend-jquery\master\sass\app\radial-bar.scss" />
+    <Content Include="backend-jquery\master\sass\app\row-extra.scss" />
+    <Content Include="backend-jquery\master\sass\app\settings.scss" />
+    <Content Include="backend-jquery\master\sass\app\sidebar.scss" />
+    <Content Include="backend-jquery\master\sass\app\slim-scroll.scss" />
+    <Content Include="backend-jquery\master\sass\app\spinner.scss" />
+    <Content Include="backend-jquery\master\sass\app\table-extras.scss" />
+    <Content Include="backend-jquery\master\sass\app\table-grid.scss" />
+    <Content Include="backend-jquery\master\sass\app\timeline.scss" />
+    <Content Include="backend-jquery\master\sass\app\todo.scss" />
+    <Content Include="backend-jquery\master\sass\app\top-navbar.scss" />
+    <Content Include="backend-jquery\master\sass\app\typo.scss" />
+    <Content Include="backend-jquery\master\sass\app\user-block.scss" />
+    <Content Include="backend-jquery\master\sass\app\utils-definitions.scss" />
+    <Content Include="backend-jquery\master\sass\app\utils.scss" />
+    <Content Include="backend-jquery\master\sass\app\variables.scss" />
+    <Content Include="backend-jquery\master\sass\app\vector-map.scss" />
+    <Content Include="backend-jquery\master\sass\app\widget.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_alerts.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_buttons.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_center-block.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_forms.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_gradients.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_grid.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_hide-text.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_image.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_labels.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_list-group.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_nav-vertical-align.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_opacity.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_pagination.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_panels.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_progress-bar.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_resize.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_responsive-visibility.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_size.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_table-row.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_text-overflow.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\mixins\_vendor-prefixes.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_alerts.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_badges.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_breadcrumbs.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_button-groups.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_buttons.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_carousel.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_close.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_code.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_component-animations.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_dropdowns.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_forms.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_glyphicons.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_grid.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_input-groups.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_jumbotron.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_labels.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_list-group.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_media.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_mixins.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_modals.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_navbar.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_navs.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_normalize.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_pager.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_pagination.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_panels.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_popovers.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_print.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_progress-bars.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_responsive-embed.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_responsive-utilities.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_scaffolding.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_tables.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_theme.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_thumbnails.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_tooltip.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_type.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_utilities.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_variables.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\bootstrap\_wells.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\_bootstrap-compass.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\_bootstrap-mincer.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\_bootstrap-sprockets.scss" />
+    <Content Include="backend-jquery\master\sass\bootstrap\_bootstrap.scss" />
+    <Content Include="backend-jquery\master\sass\themes\theme-a.scss" />
+    <Content Include="backend-jquery\master\sass\themes\theme-b.scss" />
+    <Content Include="backend-jquery\master\sass\themes\theme-c.scss" />
+    <Content Include="backend-jquery\master\sass\themes\theme-d.scss" />
+    <Content Include="backend-jquery\master\sass\themes\theme-e.scss" />
+    <Content Include="backend-jquery\master\sass\themes\theme-f.scss" />
+    <Content Include="backend-jquery\master\sass\themes\theme-g.scss" />
+    <Content Include="backend-jquery\master\sass\themes\theme-h.scss" />
+    <Content Include="backend-jquery\master\sidebar.json" />
+    <Content Include="backend-jquery\master\vendor.json" />
+    <Content Include="backend-jquery\server\datatable.json" />
+    <Content Include="backend-jquery\server\jqgrid-tree.json" />
+    <Content Include="backend-jquery\server\jqgrid.json" />
+    <Content Include="backend-jquery\server\xeditable-groups.json" />
+    <Content Include="backend-jquery\server\xeditable.res" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\css\buttons.bootstrap.scss" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\css\buttons.bootstrap4.scss" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\css\buttons.dataTables.scss" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\css\buttons.foundation.scss" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\css\buttons.jqueryui.scss" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\css\buttons.semanticui.scss" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\css\common.scss" />
+    <Content Include="backend-jquery\vendor\datatables-buttons\css\mixins.scss" />
+    <Content Include="backend-jquery\vendor\datatables\media\images\Sorting icons.psd" />
+    <Content Include="backend-jquery\vendor\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="backend-jquery\vendor\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="backend-jquery\vendor\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="backend-jquery\vendor\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="backend-jquery\vendor\fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="backend-jquery\vendor\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="backend-jquery\vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="backend-jquery\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="backend-jquery\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="backend-jquery\vendor\weather-icons\font\weathericons-regular-webfont.eot" />
+    <Content Include="backend-jquery\vendor\weather-icons\font\weathericons-regular-webfont.ttf" />
+    <Content Include="backend-jquery\vendor\weather-icons\font\weathericons-regular-webfont.woff" />
+    <Content Include="backend-jquery\vendor\weather-icons\font\weathericons-regular-webfont.woff2" />
+    <Content Include="private.config" />
+    <None Include="Properties\PublishProfiles\kferretti-budgeter - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kferretti-budgeter - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kferretti-budgeter - FTP %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kferretti-budgeter - FTP %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kferretti-budgeter - FTP %286%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kferretti-budgeter - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\kferretti-budgeter - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kferretti-budgeter - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kferretti-budgeter - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kferretti-budgeter - Web Deploy %285%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kferretti-budgeter - Web Deploy %286%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kferretti-budgeter - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.maskMoney.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmationSent.cshtml" />
+    <Content Include="Views\Account\ResendEmailConfirmation.cshtml" />
+    <Content Include="Views\Households\Create.cshtml" />
+    <Content Include="Views\Households\Delete.cshtml" />
+    <Content Include="Views\Households\Details.cshtml" />
+    <Content Include="Views\Households\Edit.cshtml" />
+    <Content Include="Views\Households\Index.cshtml" />
+    <Content Include="Views\Manage\ChangeInfo.cshtml" />
+    <Content Include="Views\Households\Invite.cshtml" />
+    <Content Include="Views\Accounts\Create.cshtml" />
+    <Content Include="Views\Accounts\Delete.cshtml" />
+    <Content Include="Views\Accounts\Details.cshtml" />
+    <Content Include="Views\Accounts\Edit.cshtml" />
+    <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\Transactions\Create.cshtml" />
+    <Content Include="Views\Transactions\Delete.cshtml" />
+    <Content Include="Views\Transactions\Details.cshtml" />
+    <Content Include="Views\Transactions\Edit.cshtml" />
+    <Content Include="Views\Transactions\Index.cshtml" />
+    <Content Include="Views\Shared\_UserPartial.cshtml" />
+    <Content Include="Views\Home\NoHouseholdIndex.cshtml" />
+    <Content Include="Views\Households\JoinAccept.cshtml" />
+    <Content Include="Views\Home\Unauthorized.cshtml" />
+    <Content Include="Views\Budgets\Create.cshtml" />
+    <Content Include="Views\Budgets\Delete.cshtml" />
+    <Content Include="Views\Budgets\Details.cshtml" />
+    <Content Include="Views\Budgets\Edit.cshtml" />
+    <Content Include="Views\Budgets\Index.cshtml" />
+    <Content Include="Views\Transactions\Reconcile.cshtml" />
+    <Content Include="Views\Households\Approve.cshtml" />
+    <Content Include="Views\Budgets\CreateTransaction.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Landing\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57783</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44363/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

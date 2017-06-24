@@ -1,0 +1,243 @@
+﻿@using FinancialApplication.Helpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>ReFund</title>
+    <!-- =============== VENDOR STYLES ===============-->
+    <!-- FONT AWESOME-->
+    <link rel="stylesheet" href="~/backend-jquery/vendor/fontawesome/css/font-awesome.min.css">
+    <!-- SIMPLE LINE ICONS-->
+    <link rel="stylesheet" href="~/backend-jquery/vendor/simple-line-icons/css/simple-line-icons.css">
+    <!-- ANIMATE.CSS-->
+    <link rel="stylesheet" href="~/backend-jquery/vendor/animate.css/animate.min.css">
+    <!-- WHIRL (spinners)-->
+    <link rel="stylesheet" href="~/backend-jquery/vendor/whirl/dist/whirl.css">
+    <!-- =============== PAGE VENDOR STYLES ===============-->
+    <!-- WEATHER ICONS-->
+    <link rel="stylesheet" href="~/backend-jquery/vendor/weather-icons/css/weather-icons.min.css">
+    <!-- =============== BOOTSTRAP STYLES ===============-->
+    <link rel="stylesheet" href="~/backend-jquery/app/css/bootstrap.css" id="bscss">
+    <!-- =============== APP STYLES ===============-->
+    <link rel="stylesheet" href="~/backend-jquery/app/css/app.css" id="maincss">
+    <link href="~/backend-jquery/app/css/theme-h.css" rel="stylesheet" />
+    <link href="~/Content/custom.css" rel="stylesheet" />
+</head>
+
+<body class="">
+    <div class="wrapper">
+        <!-- top navbar-->
+        <header class="topnavbar-wrapper">
+            <!-- START Top Navbar-->
+            <nav role="navigation" class="navbar topnavbar">
+                <!-- START navbar header-->
+                <div class="navbar-header">
+                    <a href="#/" class="navbar-brand">
+                        <div class="brand-logo">
+                            <h1 class="logo-font">ReFund</h1>
+                        </div>
+                        <div class="brand-logo-collapsed">
+                            <h1 class="logo-font">RF</h1>
+                        </div>
+                    </a>
+                </div>
+                <!-- END navbar header-->
+                <!-- START Nav wrapper-->
+                <div class="nav-wrapper">
+                    <!-- START Left navbar-->
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                            <a href="#" data-trigger-resize="" data-toggle-state="aside-collapsed" class="hidden-xs">
+                                <em class="fa fa-navicon"></em>
+                            </a>
+                            <!-- Button to show/hide the sidebar on mobile. Visible on mobile only.-->
+                            <a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+                                <em class="fa fa-navicon"></em>
+                            </a>
+                        </li>
+                        <!-- START User avatar toggle-->
+                        <li>
+                            <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
+                            <a id="user-block-toggle" href="#user-block" data-toggle="collapse">
+                                <em class="icon-user"></em>
+                            </a>
+                        </li>
+                        <!-- END User avatar toggle-->
+                    </ul>
+                    <!-- END Left navbar-->
+                    @*<!-- START Right Navbar-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- START Alert menu-->
+                        <li class="dropdown dropdown-list notification-position">
+                            <a href="#" data-toggle="dropdown">
+                                <em class="icon-bell"></em>
+                                <div class="label label-info"></div>
+                            </a>
+                            <!-- START Dropdown menu-->
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <!-- START list group-->
+                                    <div class="list-group">
+                                        <!-- list item-->
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-box">
+                                                <div class="pull-left">
+                                                    <em class="fa fa-twitter fa-2x text-info"></em>
+                                                </div>
+                                                <div class="media-box-body clearfix">
+                                                    <p class="m0">New followers</p>
+                                                    <p class="m0 text-muted">
+                                                        <small>1 new follower</small>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- list item-->
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-box">
+                                                <div class="pull-left">
+                                                    <em class="fa fa-envelope fa-2x text-warning"></em>
+                                                </div>
+                                                <div class="media-box-body clearfix">
+                                                    <p class="m0">New e-mails</p>
+                                                    <p class="m0 text-muted">
+                                                        <small>You have 10 new emails</small>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- list item-->
+                                        <a href="#" class="list-group-item">
+                                            <div class="media-box">
+                                                <div class="pull-left">
+                                                    <em class="fa fa-tasks fa-2x text-success"></em>
+                                                </div>
+                                                <div class="media-box-body clearfix">
+                                                    <p class="m0">Pending Tasks</p>
+                                                    <p class="m0 text-muted">
+                                                        <small>11 pending task</small>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <!-- last list item-->
+                                        <a href="#" class="list-group-item">
+                                            <small>More notifications</small>
+                                            <span class="label label-danger pull-right">14</span>
+                                        </a>
+                                    </div>
+                                    <!-- END list group-->
+                                </li>
+                            </ul>
+                            <!-- END Dropdown menu-->
+                        </li>
+                        <!-- END Alert menu-->
+                    </ul>
+                    <!-- END Right Navbar-->*@
+                </div>
+                <!-- END Nav wrapper-->
+            </nav>
+            <!-- END Top Navbar-->
+        </header>
+        <!-- sidebar-->
+        <aside class="aside">
+            <!-- START Sidebar (left)-->
+            <div class="aside-inner">
+                <nav data-sidebar-anyclick-close="" class="sidebar">
+                    <!-- START sidebar nav-->
+                    <ul class="nav">
+                        <!-- START user info-->
+                        @if (Request.IsAuthenticated)
+                        {
+                            Html.RenderAction("UserPartial", "Home");
+                        }
+                        <!-- END user info-->
+                        <!-- Iterates over all sidebar items-->
+                        <li class=" ">
+                            <a href="@Url.Action("Index", "Home")" title="Dashboard">
+                                <em class="icon-speedometer"></em>
+                                <span data-localize="sidebar.nav.DASHBOARD">Dashboard</span>
+                            </a>
+                        </li>
+                        @if (User.Identity.IsInHousehold())
+                        {
+                        <li class=" ">
+                            <a href="@Url.Action("Index", "Households")" title="Household">
+                                <em class="icon-home"></em>
+                                <span data-localize="sidebar.nav.HOUSEHOLD">Household</span>
+                            </a>
+                        </li>
+                        <li class=" ">
+                            <a href="@Url.Action("Index", "Accounts")" title="Accounts">
+                                <em class="fa fa-bank"></em>
+                                <span data-localize="sidebar.nav.ACCOUNTS">Accounts</span>
+                            </a>
+                        </li>
+                        <li class=" ">
+                            <a href="@Url.Action("Index", "Budgets")" title="Budgets">
+                                <em class="fa fa-line-chart"></em>
+                                <span data-localize="sidebar.nav.BUDGETS">Budgets</span>
+                            </a>
+                        </li>
+                        }
+                    </ul>
+                    <!-- END sidebar nav-->
+                </nav>
+            </div>
+            <!-- END Sidebar (left)-->
+        </aside>
+        <!-- Main section-->
+        <section>
+            @RenderBody()
+        </section>
+    </div>
+    <!-- =============== VENDOR SCRIPTS ===============-->
+    <!-- MODERNIZR-->
+    <script src="~/backend-jquery/vendor/modernizr/modernizr.custom.js"></script>
+    <!-- MATCHMEDIA POLYFILL-->
+    <script src="~/backend-jquery/vendor/matchMedia/matchMedia.js"></script>
+    <!-- JQUERY-->
+    <script src="~/backend-jquery/vendor/jquery/dist/jquery.js"></script>
+    <!-- BOOTSTRAP-->
+    <script src="~/backend-jquery/vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- STORAGE API-->
+    <script src="~/backend-jquery/vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
+    <!-- JQUERY EASING-->
+    <script src="~/backend-jquery/vendor/jquery.easing/js/jquery.easing.js"></script>
+    <!-- ANIMO-->
+    <script src="~/backend-jquery/vendor/animo.js/animo.js"></script>
+    <!-- SLIMSCROLL-->
+    <script src="~/backend-jquery/vendor/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- SCREENFULL-->
+    <script src="~/backend-jquery/vendor/screenfull/dist/screenfull.js"></script>
+    <!-- LOCALIZE-->
+    <script src="~/backend-jquery/vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+    <!-- RTL demo-->
+    <script src="~/backend-jquery/app/js/demo/demo-rtl.js"></script>
+    <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+    <!-- SPARKLINE-->
+    <script src="~/backend-jquery/vendor/sparkline/index.js"></script>
+    <!-- FLOT CHART-->
+    <script src="~/backend-jquery/vendor/Flot/jquery.flot.js"></script>
+    <script src="~/backend-jquery/vendor/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="~/backend-jquery/vendor/Flot/jquery.flot.resize.js"></script>
+    <script src="~/backend-jquery/vendor/Flot/jquery.flot.pie.js"></script>
+    <script src="~/backend-jquery/vendor/Flot/jquery.flot.time.js"></script>
+    <script src="~/backend-jquery/vendor/Flot/jquery.flot.categories.js"></script>
+    <script src="~/backend-jquery/vendor/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <!-- EASY PIE CHART-->
+    <script src="~/backend-jquery/vendor/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
+    <!-- MOMENT JS-->
+    <script src="~/backend-jquery/vendor/moment/min/moment-with-locales.min.js"></script>
+    <!-- DEMO-->
+    @*<script src="~/backend-jquery/app/js/demo/demo-flot.js"></script>*@
+    <!-- =============== APP SCRIPTS ===============-->
+    <script src="~/backend-jquery/app/js/app.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

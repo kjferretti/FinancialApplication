@@ -1,0 +1,156 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+.notification-position{
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+.logo-font{
+    font-family: 'Lobster', sans-serif;
+    color: white;
+    font-size: 1.5em;
+    text-shadow: -2px 2px 1px grey;
+    margin-top: 4px;
+}
+
+.landing-logo{
+    font-family: 'Lobster', sans-serif;
+    color: black;
+    font-size: 1.5em;
+    text-shadow: -2px 2px 1px red;
+    margin-top: -23px;
+}
+
+.landing-heading{
+    font-family: 'Lobster', sans-serif;
+    color: white;
+    /*font-size: 1.5em;*/
+    text-shadow: -2px 2px 1px red;
+    /*margin-top: -23px;*/
+}
+
+.text-shadow-white{
+    text-shadow: 2px 2px white;
+}
+
+.logo-register{
+    font-family: 'Lobster', sans-serif;
+    color: white;
+    font-size: 1.5em;
+    text-shadow: -2px 2px 1px grey;
+    margin-top: 4px;
+}
+
+.no-header-danger{
+    border-top-color: red;
+}
+
+.border-bottom-group{
+    border-bottom: 1px solid #cfdbe2;
+}
+
+.bottom-spacer-xs{
+    margin-bottom: 5px;
+}
+
+.top-spacer-xs{
+    margin-top: 5px;
+}
+
+#remove-tab-styling{
+    padding: 0;
+    border-style: none;
+}
+
+.help-block{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #909FA7;
+}
+
+select:required:invalid {
+  color: gray;
+}
+
+option[value=""][disabled] {
+  display: none;
+}
+
+option {
+  color: black;
+}
+
+.switch input:checked + span {
+    background-color: #f05050;
+    border-color: #f05050;
+}
+
+.switch span {
+    background-color: #27c24c;
+    border-color: #27c24c;
+}
+
+/*.aside-collapsed .user-block .btn-block .btn-block, .aside-collapsed-text .user-block .btn-block {
+
+}
+
+.aside-collapsed .user-block .btn-block button, .aside-collapsed-text .user-block button {
+    white-space: normal;
+    visibility: hidden;
+}
+
+.aside-collapsed .user-block .btn-block button:after, .aside-collapsed-text .user-block button:after {
+    content: 'Manage';
+    visibility: visible;
+    display: block;
+    position: absolute;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    font-size: 13px;
+    border-color: transparent;
+    -webkit-appearance: none;
+    outline: none !important;
+    transition: all 0.1s;
+    padding: 1px 5px;
+    line-height: 1.5;
+    color: #fff;
+    background-color: #f05050;
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    user-select: none;
+    font-family: inherit;
+    text-transform: none;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.aside-collapsed .user-block .btn-block a, .aside-collapsed-text .user-block a {
+    white-space: normal;
+}*/
+
+.aside-collapsed .user-block .btn-block button .manage-button-responsive, .aside-collapsed-text .user-block button .manage-button-responsive {
+    display: none;
+}
+
+.aside .user-block .btn-block a {
+    width: 128px;
+    margin-right:3px
+}
+
+.aside-collapsed .user-block .btn-block a, .aside-collapsed-text .user-block a {
+    width: 55px;
+}
+
+.top-bordered{
+    border-top-width: 1px !important;
+    border-top-color: #eee !important;
+    border-top-style: solid !important;
+}

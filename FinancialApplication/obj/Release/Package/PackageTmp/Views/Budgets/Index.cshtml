@@ -1,0 +1,67 @@
+﻿@model FinancialApplication.Models.BudgetIndexViewModel
+
+<!-- Page content-->
+<div class="content-wrapper">
+    <h3>
+        Budgets for @ViewBag.HouseholdName
+    </h3>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-md-10">
+                <span class="text-danger">@ViewBag.NoAccounts</span>
+                
+                <!-- START panel-->
+                <div id="panelDemo7" class="panel panel-default no-header-danger">
+                    <div class="panel-heading"><a href="@Url.Action("Create")" class="btn btn-sm btn-default">Create New</a></div>
+                    <div class="panel-body">
+                        <!-- START table-responsive-->
+                        <div class="table-responsive">
+                            @if (Model.Budgets.Any())
+                            {
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="top-bordered">Budget</th>
+                                            <th class="top-bordered">Starting Amount</th>
+                                            <th class="top-bordered">Amount Left</th>
+                                            <th class="top-bordered">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{ int i = 0; }
+                                        @foreach (var budget in Model.Budgets)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @budget.BudgetCategory.Name
+                                                </td>
+                                                <td>
+                                                    $@Html.DisplayFor(modelitem => budget.Amount)
+                                                </td>
+                                                <td>
+                                                    @Model.CurrentAmounts[i].ToString("C")
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-default btn-xs" style="width:120px" href="@Url.Action("Edit", new { id = budget.Id })"><i class="fa fa-edit"></i>  Edit</a>
+                                                    <a class="btn btn-default btn-xs" style="width:120px" href="@Url.Action("Details", new { id = budget.Id })"><i class="fa fa-search"></i>  Details</a>
+                                                    <a class="btn btn-default btn-xs" style="width:120px" href="@Url.Action("CreateTransaction", new { id = budget.Id })"><i class="fa fa-plus"></i>  New Transaction</a>
+                                                    @if (budget.BudgetCategory.Name != "General")
+                                                    {
+                                                    <a class="btn btn-default btn-xs delete" data-confirm="Are you sure you want to delete this account?" style="width:120px" href="@Url.Action("Delete", new { id = budget.Id })"><i class="fa fa-trash"></i>  Delete</a>
+                                                    }
+                                                </td>
+                                            </tr>
+                                            i++;
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                        <!-- END table-responsive-->
+                    </div>
+                </div>
+                <!-- END panel-->
+            </div>
+        </div>
+    </div>
+</div>

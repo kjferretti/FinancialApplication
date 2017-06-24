@@ -1,0 +1,136 @@
+﻿@model FinancialApplication.Models.BudgetDetailsViewModel
+
+<!-- DATATABLES-->
+<link rel="stylesheet" href="~/backend-jquery/vendor/datatables-colvis/css/dataTables.colVis.css">
+<link rel="stylesheet" href="~/backend-jquery/vendor/datatables/media/css/dataTables.bootstrap.css">
+<link rel="stylesheet" href="~/backend-jquery/vendor/dataTables.fontAwesome/index.css">
+
+<!-- Page content-->
+<div class="content-wrapper">
+    <h3>
+        Budget Details
+    </h3>
+    <div class="row">
+        <div class="col-md-2">
+            <!-- START panel-->
+            <div id="panelDemo7" class="panel panel-default no-header-danger">
+                <div class="panel-heading">Budget Status</div>
+                <div class="panel-body">
+                    <dl class="">
+
+                        <dt>
+                            Description
+                        </dt>
+
+                        <dd>
+                            @Model.Budget.BudgetCategory.Name
+                        </dd>
+
+                        <dt>
+                            Starting Amount
+                        </dt>
+
+                        <dd>
+                            $@Html.DisplayFor(model => model.Budget.Amount) (@Html.ActionLink("Edit", "Edit", new { id = Model.Budget.Id }))
+                        </dd>
+
+                        <dt>
+                            Amount Remaining
+                        </dt>
+
+                        <dd>
+                            @Model.CurrentAmount.ToString("C")
+                        </dd>
+
+                    </dl>
+                </div>
+                <div class="panel-footer">
+                    @Html.ActionLink("Back to Budgets", "Index", null, new { @class = "btn btn-xs btn-success" })
+                </div>
+            </div>
+            <!-- END panel-->
+        </div>
+        <div class="col-md-10">
+            <!-- START panel-->
+            <div id="panelDemo7" class="panel panel-default no-header-danger">
+                <div class="panel-heading">Budget Transactions</div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table id="datatable1" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Transaction</th>
+                                    <th>Date</th>
+                                    <th>Made By</th>
+                                    <th>Amount</th>
+                                    <th>Account</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var transaction in Model.BudgetTransactions)
+                                {
+                                    <tr>
+                                        <td>
+                                            @if (transaction.ForReconciled)
+                                            {
+                                                <text>@transaction.Description (Reconciled)</text>
+                                            }
+                                            else
+                                            {
+                                                <text>@transaction.Description</text>
+                                            }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => transaction.Date)
+                                        </td>
+                                        <td>
+                                            @transaction.MadeBy.FullName
+                                        </td>
+                                        <td>
+                                            @if (transaction.Expense && !transaction.ForReconciled)
+                                            {
+                                                <text>-@transaction.Amount.ToString("C")</text>
+                                            }
+                                            else if (!transaction.ForReconciled)
+                                            {
+                                                <text>+@transaction.Amount.ToString("C")</text>
+                                            }
+                                            else
+                                            {
+                                                <text>@transaction.Amount.ToString("C")</text>
+                                            }
+                                        </td>
+                                        <td>
+                                            @transaction.Account.Name
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-default btn-xs" style="width:120px" href="@Url.Action("Edit", "Transactions", new { id = transaction.Id })"><i class="fa fa-edit"></i>  Edit</a>
+                                            @if (!transaction.ForReconciled)
+                                            {
+                                                @*<a class="btn btn-default btn-xs" style="width:120px" href="@Url.Action("Reconcile", "Transactions", new { id = transaction.Id })"><i class="fa fa-calculator"></i>  Reconcile</a>*@
+                                            <a class="btn btn-default btn-xs delete" data-confirm="Are you sure you want to delete this account?" style="width:120px" href="@Url.Action("Delete", "Transactions", new { id = transaction.Id })"><i class="fa fa-trash"></i>  Delete</a>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="@Url.Action("CreateTransaction", new { id = Model.Budget.Id })" class="btn btn-sm btn-default">New Transaction</a>
+                    </div>
+                </div>
+            </div>
+            <!-- END panel-->
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <!-- SPARKLINE-->
+    <script src="~/backend-jquery/vendor/sparkline/index.js"></script>
+    <!-- DATATABLES-->
+    <script src="~/backend-jquery/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="~/backend-jquery/vendor/datatables-colvis/js/dataTables.colVis.js"></script>
+    <script src="~/backend-jquery/vendor/datatables/media/js/dataTables.bootstrap.js"></script>
+    <script src="~/backend-jquery/app/js/demo/demo-datatable.js"></script>
+    }

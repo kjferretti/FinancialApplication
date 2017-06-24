@@ -1,0 +1,102 @@
+﻿@model FinancialApplication.Models.NeedHouseholdViewModel
+
+<!-- SELECT2 -->
+<link rel="stylesheet" href="~/backend-jquery/vendor/select2/dist/css/select2.css">
+<link rel="stylesheet" href="~/backend-jquery/vendor/select2-bootstrap-theme/dist/select2-bootstrap.css">
+
+<!-- Page content-->
+<div class="content-wrapper">
+    <h3>
+        Become a part of a household
+        <small>Households are required to utilize budgeting functionality</small>
+    </h3>
+    <div class="container-fluid">
+        <!-- START row-->
+        <div class="row">
+            <div class="col-md-4">
+                <!-- START panel-->
+                <div id="panelDemo12" class="panel panel-default no-header-danger">
+                    <div class="panel-body">
+                        <div class="border-bottom-group">
+                            <div class="bottom-spacer-xs">
+                                <label class="radio-inline">
+                                    <input id="optionsRadios1" type="radio" name="optionsRadios" value="option1" @ViewBag.Create role="tab" data-target="#create">Create your own
+                                </label>
+                                <label class="radio-inline">
+                                    <input id="optionsRadios2" type="radio" name="optionsRadios" value="option2" @ViewBag.Join role="tab" data-target="#join">Join existing
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Tab panes-->
+                        <div class="tab-content top-spacer-xs" id="remove-tab-styling">
+                            <!-- Create tab -->
+                            <div id="create" role="tabpanel" class="@ViewBag.CreateClasses">
+                                @using (Html.BeginForm("Create", "Households"))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <span class="help-block">Create your own household which you will be in charge of.</span>
+                                    <div class="form-group">
+                                        <input id="Name" type="text" class="form-control" placeholder="Enter household name" name="Name" required>
+                                    </div>
+                                    <label>Invite</label>
+                                    <span class="help-block">Enter names to invite existing users or enter emails to invite anyone.</span>
+                                    <div class="form-group">
+                                        <select name="Invitees" multiple="multiple" class="form-control select2-1">
+                                            @foreach (var user in Model.ExistingUsers)
+                                            {
+                                                <option value="@user">@user</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="">
+                                            <input type="submit" value="Create Household" class="btn btn-sm btn-info" />
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <!-- Join tab -->
+                            <div id="join" role="tabpanel" class="@ViewBag.JoinClasses">
+                                @using (Html.BeginForm("Join", "Households"))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <span class="help-block">Join an existing household. If you have an outstanding invitation then you will automatically join, otherwise you will have to wait to be approved.</span>
+                                    <span class="alert-success">@ViewBag.RequestSent</span>
+                                    <div class="form-group">
+                                        <select name="HouseholdId" class="form-control m-b">
+                                            <option value="" disabled selected>Select a household...</option>
+                                            @foreach (var household in ViewBag.Households)
+                                            {
+                                                <option value="@household.Id">@household.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="">
+                                            <input type="submit" value="Join Household" class="btn btn-sm btn-info" />
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END panel-->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $('#optionsRadios1').click(function () {
+            $(this).tab('show');
+        });
+        $('#optionsRadios2').click(function () {
+            $(this).tab('show');
+        });
+    </script>
+
+    <!-- select2 -->
+    <script src="~/backend-jquery/vendor/select2/dist/js/select2.js"></script>
+    }

@@ -1,0 +1,69 @@
+﻿@model FinancialApplication.Models.CodeFirst.Account
+
+<!-- Page content-->
+<div class="content-wrapper">
+    <h3>
+        Create a new account for your household
+    </h3>
+    <div class="container-fluid">
+        <!-- START row-->
+        <div class="row">
+            <div class="col-md-4">
+                <!-- START panel-->
+                <div class="panel panel-default no-header-danger">
+                    <div class="panel-heading">Enter Account Information</div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("HouseholdId")
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <label>Account Name</label>
+                                @if (Model != null)
+                                {
+                                    <input class="form-control" data-val="true" data-val-required="The Name field is required." id="Name" name="Name" type="text" @*value="@Model.Name"*@>
+                                }
+                                else
+                                {
+                                    <input class="form-control" data-val="true" data-val-required="The Name field is required." id="Name" name="Name" type="text" value="">
+                                }
+
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Initial Account Balance</label>
+                                <div class="input-group m-b">
+                                    <span class="input-group-addon">$</span>
+                                    @if (Model != null)
+                                    {
+                                        <input class="form-control" data-val="true" data-val-number="The field Initial Balance must be a number." data-val-range="Amount must be a number between 0.01 amd 1000000000.00" data-val-range-max="1000000000" data-val-range-min="0.01" data-val-required="The Initial Balance field is required." id="currency" name="CurrentBalance" type="decimal" @*value="@Model.InitialBalance"*@>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-control" data-val="true" data-val-number="The field Initial Balance must be a number." data-val-range="Amount must be a number between 0.01 amd 1000000000.00" data-val-range-max="1000000000" data-val-range-min="0.01" data-val-required="The Initial Balance field is required." id="currency" name="CurrentBalance" type="decimal" value="">
+                                    }
+                                </div>
+                                @Html.ValidationMessageFor(model => model.CurrentBalance, "", new { @class = "text-danger" })
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-default">Add Account</button>
+                        }
+                    </div>
+                    <div class="panel-footer">
+                            @Html.ActionLink("Back to Accounts", "Index", null, new { @class = "btn btn-xs btn-success" })
+                    </div>
+                </div>
+                <!-- END panel-->
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/jquery.maskMoney.js"></script>
+    <script>
+        $(function() {
+            $('#currency').maskMoney({thousands:""});
+        })
+    </script>
+    }

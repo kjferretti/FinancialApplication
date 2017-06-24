@@ -1,0 +1,52 @@
+﻿@model FinancialApplication.Models.CodeFirst.JoinRequest
+
+<!-- Page content-->
+<div class="content-wrapper">
+    <h3>
+        Approve this request?
+    </h3>
+    <div class="container-fluid">
+        <!-- START row-->
+        <div class="row">
+            <div class="col-md-4">
+                <!-- START panel-->
+                <div class="panel panel-default no-header-danger">
+                    <div class="panel-heading"></div>
+                    <div class="panel-body">
+                        <dl class="">
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Name):
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Name)
+                            </dd>
+
+                            <dt>
+                                Members:
+                            </dt>
+
+                            @foreach (var member in Model.Members)
+                            {
+                            <dd>
+                                @member.FullName
+                            </dd>
+                            }
+
+                        </dl>
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-sm btn-default">Join household</button>
+                        }
+                    </div>
+                    <div class="panel-footer">
+                        @Html.ActionLink("Back to Home", "Index", null, new { @class = "btn btn-xs btn-success" })
+                    </div>
+                </div>
+                <!-- END panel-->
+            </div>
+        </div>
+    </div>
+</div>
